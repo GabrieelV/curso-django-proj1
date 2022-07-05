@@ -1,9 +1,10 @@
-from recipes.views import home, contato, sobre
 from django.urls import path
+from . import views
 
+# recipes:recipe
+app_name = 'recipes'
 # Register your models here.
 urlpatterns = [
-    path('', home),
-    path('sobre/', sobre),
-    path('contato/', contato),
+    path('', views.home, name="home"),
+    path('recipes/<int:id>/', views.recipe, name="recipe"),
 ]
